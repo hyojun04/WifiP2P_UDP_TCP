@@ -1,0 +1,139 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/tips"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/etMessageInput"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_margin="5dp"
+            android:hint="메시지를 입력하세요"
+            android:inputType="text" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnCreateGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="그룹 생성"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/btnRemoveGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="그룹 제거"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <!-- 수신 대기와 메시지 보내기 버튼을 한 줄에 배치하기 위해 추가된 LinearLayout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnStartReceive"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="수신 대기"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/btnSendMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="메시지 보내기"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+        <!-- 추가된 부분 끝 -->
+
+        <!-- 여기서 ImageView를 제거하고 새로운 레이아웃을 추가합니다 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <!-- 수신 메시지 (왼쪽) -->
+            <TextView
+                android:id="@+id/tvReceiveMessageLog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:hint="수신된 메시지가 여기에 표시됩니다."
+                android:padding="8dp"
+                android:gravity="start|center_vertical"
+                android:textSize="16sp"
+                android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white" />
+
+            <!-- 송신 메시지 (오른쪽) -->
+            <TextView
+                android:id="@+id/tvSendMessageLog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:hint="송신된 메시지가 여기에 표시됩니다."
+                android:padding="8dp"
+                android:gravity="end|center_vertical"
+                android:textSize="16sp"
+                android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white" />
+
+
+        </LinearLayout>
+        <!-- 송신자 레이아웃 끝 -->
+
+
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="18sp" />
+
+        <!-- 메시지를 표시할 TextView 추가 -->
+        <TextView
+            android:id="@+id/tvReceivedMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="18sp"
+            android:text="수신된 메시지가 여기에 표시됩니다."
+            tools:ignore="HardcodedText" />
+        <!-- 추가된 부분 끝 -->
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_top_bar">#FF0277BD</color>
+    <color name="blue">#2196F3</color> <!-- Material Design Blue -->
+    <color name="gray">#9E9E9E</color> <!-- Material Design Gray -->
+</resources>

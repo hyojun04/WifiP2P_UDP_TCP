@@ -1,0 +1,294 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnChooseFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="임시 파일 선택"
+            android:visibility="gone" />
+        <!--버튼을 사용하지 않기 때문에 visibility를 gone으로 설정 -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/tips"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/etMessageInput"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_margin="5dp"
+            android:hint="메시지를 입력하세요"
+            android:inputType="text" />
+        <!-- IP 주소를 입력할 수 있는 EditText 추가 -->
+        <EditText
+            android:id="@+id/etTargetIpAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="IP 주소를 입력하세요"
+            android:inputType="text" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etTargetTimeInterval"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="메시지 간격 ms"
+                android:inputType="text" />
+            <EditText
+                android:id="@+id/etTargetTimeRange"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="메시지 전송 지속시간 ms"
+                android:inputType="text" />
+            <Button
+                android:id="@+id/btnStartReceive"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize = "10dp"
+                android:layout_weight="1"
+                android:text="UDP 수신 대기"
+                tools:ignore="HardcodedText" />
+            <Button
+                android:id="@+id/btnStartTCPReceive"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize = "10dp"
+                android:layout_weight="1"
+                android:text="TCP 수신 대기"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDirectDiscover"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="장치 검색"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/btnDisconnect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="연결 끊기"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/btnSendMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="UDPBro"
+                android:textSize="13dp"
+                tools:ignore="HardcodedText" />
+
+            <!--<Button
+                android:id="@+id/btnSendUnicastMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="Unicast Once"
+                android:textSize="13dp"
+                tools:ignore="HardcodedText" /> -->
+
+
+            <Button
+                android:id="@+id/btnSendUnicastProgMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="UDPUni"
+                android:textSize="13dp"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/btnSendTcpMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="Tcp"
+                android:textSize="13dp"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/btnSendPing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="Ping"
+                android:textSize="13dp"
+                tools:ignore="HardcodedText" />
+
+
+
+
+        </LinearLayout>
+        <!-- 파일 보내기 기능 비활성화
+        <Button
+            android:id="@+id/btnChooseFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:enabled="false"
+            android:text="파일 선택"
+            tools:ignore="HardcodedText" />
+            -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <!-- 수신 메시지 (왼쪽) -->
+            <TextView
+                android:id="@+id/tvReceiveMessageLog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:hint="수신된 메시지가 여기에 표시됩니다."
+                android:padding="8dp"
+                android:gravity="start|center_vertical"
+                android:textSize="16sp"
+                android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white" />
+
+            <!-- 송신 메시지 (오른쪽) -->
+            <TextView
+                android:id="@+id/tvSendMessageLog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:hint="송신된 메시지가 여기에 표시됩니다."
+                android:padding="8dp"
+                android:gravity="end|center_vertical"
+                android:textSize="16sp"
+                android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white" />
+
+
+        </LinearLayout>
+        <!-- 송신자 레이아웃 끝 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <!-- 수신 메시지 (왼쪽) -->
+            <Button
+                android:id="@+id/btneraseReceiveMessageLog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:text="수신된 메시지 지우기" />
+
+            <Button
+                android:id="@+id/btneraseSendMessageLog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:text="송신된 메시지 지우기" />
+
+
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="장치 정보"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/tvDeviceState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="18sp"
+            tools:text="샤오미 5X" />
+
+        <TextView
+            android:id="@+id/tvConnectionStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="18sp"
+            tools:text="연결 상태" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="디바이스 리스트"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDeviceList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="vertical"  />
+
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="18sp" />
+
+        <!-- 메시지를 표시할 TextView 추가 -->
+        <TextView
+            android:id="@+id/tvReceivedMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="18sp"
+            android:text="수신된 메시지가 여기에 표시됩니다."
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+</ScrollView>

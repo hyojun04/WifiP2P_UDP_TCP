@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">WifiP2P</string>
+    <string name="tips"> 1. 수신측이 먼저 그룹을 생성하고, 송신측이 해당 장치를 검색하고 연결을 클릭합니다.\n2. 연결 성공 후, 수신측이 먼저 리스닝을 시작하고, 송신측이 파일을 선택하여 전송을 진행합니다.</string>
+</resources>
